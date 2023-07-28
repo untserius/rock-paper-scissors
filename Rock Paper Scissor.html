@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissor</title>
 
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="game.js" defer></script>
 </head>
 <body>
@@ -15,9 +16,11 @@
 
     <div class="container">
         <div class="display">
-            <p>Computer Score: <span id="computerScore"></span></p>
-            <p>Your Score: <span id="userScore"></span></p>
-            <p id="output"></p>
+            <p id="output">Choose Your Move!</p>
+            <div class="counters">
+                <p>Computer Score: <span id="computerScore"></span></p>
+                <p>Your Score: <span id="userScore"></span></p>
+            </div>
         </div>
 
         <div class="keys">
@@ -25,7 +28,7 @@
             <button id="paper">Paper</button>
             <button id="scissor">Scissor</button>
 
-            <button id="reset">Play Again</button>
+            <button id="reset">Reset</button>
         </div>
     </div>
 

@@ -44,7 +44,7 @@ function resetGame() {
     computerScore = 0;
     roundCount = 0;
     updateScore();
-    document.getElementById("output").innerHTML = "";
+    document.getElementById("output").innerHTML = "Choose Your Move!";
 }
 
 // function to handle the game logic after each round
@@ -61,11 +61,20 @@ function handleRound(playerSelection) {
     }
 }
 
+// function for displaying final result
+
+function finalResult() {
+    if(userScore === computerScore) {
+        return "It's a tie. Try Again!";
+    } else if (userScore > computerScore) {
+        return "Congratulations You Win! (" + userScore + " - " + computerScore +")";
+    } else {
+        return "Sorry! You Lost (" + userScore + " - " + computerScore +")";
+    }
+}
+
 function endGame() {
-    document.getElementById("output").innerHTML = "Final Result: " + 
-    (userScore > computerScore) ?
-        "Congratulations! You scored " + userScore + " points and the computer scored " + computerScore + " points." + " You Win!" : 
-        "Sorry! You scored " + userScore + " points and the computer scored " + computerScore + " points." + " You Lose!";
+    document.getElementById("output").innerHTML = finalResult(); 
 }
 
 // game functions

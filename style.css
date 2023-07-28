@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    background-image: url(images/5315657.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.header {
+    background: ;
+    text-align: center;
+    padding: 20px;
+}
+
+.header > p {
+    padding: 10px;
+}
+
+.container > div {
+    padding: 20px 0;
+}
+
+#output {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: ;
+    font-size: 3vh;
+    height: 100px;
+}
+
+.counters {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: ;
+    height: 50px;
+}
+
+.keys {
+    display: flex;
+    justify-content: center;
+}
+
+.keys > button {
+    padding: 10px;
+    margin-right: 10px;
+}
