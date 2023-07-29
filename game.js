@@ -4,50 +4,55 @@ let userScore = 0;
 let computerScore = 0;
 let roundCount = 0;
 
-// function to get computer's choice
+// get computer's choice
 const getComputerChoice = () => {
     const randomIndex = Math.floor(Math.random() * box.length);
-    return box[randomIndex];
+
+    // converts the computer's choice into respective icon
+    function iconSelector() {
+        if(randomIndex === 0) {
+            return `<i class="fa-solid fa-hand-back-fist"></i>`;
+        } else if(randomIndex === 1) {
+            return `<i class="fa-solid fa-hand"></i>`;
+        } else if(randomIndex === 2) {
+            return `<i class="fa-solid fa-hand-scissors"></i>`;
+        }   
+    }
+
+    return iconSelector();
 };
 
-// function to play the game
+// game logic
 function playGame(playerSelection, computerSelection) {
     const userChoice = playerSelection;
     const computerChoice = computerSelection;
 
     if (userChoice === computerChoice) {
-        return "It's a Tie!";
+        return `It's a Tie!`;
     } else if (
-        (userChoice === "rock" && computerChoice === "scissors") ||
-        (userChoice === "paper" && computerChoice === "rock") ||
-        (userChoice === "scissors" && computerChoice === "paper")
+        (userChoice === `<i class="fa-solid fa-hand-back-fist"></i>` && computerChoice === `<i class="fa-solid fa-hand-scissors"></i>`) ||
+        (userChoice === `<i class="fa-solid fa-hand"></i>` && computerChoice === `<i class="fa-solid fa-hand-back-fist"></i>`) ||
+        (userChoice === `<i class="fa-solid fa-hand-scissors"></i>` && computerChoice === `<i class="fa-solid fa-hand"></i>`)
     ) {
         userScore++;
         updateScore();
-        return "You Win! " + userChoice + " beats " + computerChoice;
+        return `You Win! ${userChoice} beats ${computerChoice}`;
     } else {
         computerScore++;
         updateScore();
-        return "You Lose! " + computerChoice + " beats " + userChoice;
+        return `You Lose! ${computerChoice} beats ${userChoice}`;
     }
 }
 
-// function to update scores
+// update scores
 function updateScore() {
     document.getElementById("userScore").innerHTML = userScore;
     document.getElementById("computerScore").innerHTML = computerScore;
 }
 
-// function to reset the game
-function resetGame() {
-    userScore = 0;
-    computerScore = 0;
-    roundCount = 0;
-    updateScore();
-    document.getElementById("output").innerHTML = "Choose Your Move";
-}
 
-// function to handle the game logic after each round
+
+// handle the game logic after each round/loop
 function handleRound(playerSelection) {
     if (roundCount < 5) {
         const computerSelection = getComputerChoice();
@@ -61,11 +66,15 @@ function handleRound(playerSelection) {
     }
 }
 
-// function for displaying final result
+// display final result
+function endGame() {
+    document.getElementById("output").innerHTML = finalResult(); 
+}
 
+// final result logic
 function finalResult() {
     if(userScore === computerScore) {
-        return "It's a tie! Try Again";
+        return "It's a Tie! Try Again";
     } else if (userScore > computerScore) {
         return "Congratulations! You Win (" + userScore + " - " + computerScore +")";
     } else {
@@ -73,15 +82,20 @@ function finalResult() {
     }
 }
 
-function endGame() {
-    document.getElementById("output").innerHTML = finalResult(); 
-}
-
 // game functions
-document.querySelector("#rock").addEventListener("click", () => handleRound("rock"));
-document.querySelector("#paper").addEventListener("click", () => handleRound("paper"));
-document.querySelector("#scissor").addEventListener("click", () => handleRound("scissors"));
+document.querySelector("#rock").addEventListener("click", () => handleRound(`<i class="fa-solid fa-hand-back-fist"></i>`));
+document.querySelector("#paper").addEventListener("click", () => handleRound(`<i class="fa-solid fa-hand"></i>`));
+document.querySelector("#scissor").addEventListener("click", () => handleRound(`<i class="fa-solid fa-hand-scissors"></i>`));
 
 
-// reset game
+// reset game button
 document.querySelector("#reset").addEventListener("click", () => resetGame());
+
+// reset logic
+function resetGame() {
+    userScore = 0;
+    computerScore = 0;
+    roundCount = 0;
+    updateScore();
+    document.getElementById("output").innerHTML = "Choose Your Move";
+}

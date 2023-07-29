@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissor</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Source+Sans+3&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Source+Sans+3&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="game.js" defer></script>
 </head>
@@ -21,7 +23,6 @@
 
     <div class="container">
         <div class="display">
-            
             <p id="output"><span id="live"></span>Choose Your Move</p>
             <div class="counters">
                 <p>Computer : <span id="computerScore"></span></p>
@@ -30,9 +31,9 @@
         </div>
 
         <div class="keys">
-            <button id="rock">Rock</button>
-            <button id="paper">Paper</button>
-            <button id="scissor">Scissor</button>
+            <button id="rock"><i class="fa-solid fa-hand-back-fist"></i></button>
+            <button id="paper"><i class="fa-solid fa-hand"></i></button>
+            <button id="scissor"><i class="fa-solid fa-hand-scissors"></i></button>
         </div>
 
         <div class="footer">
