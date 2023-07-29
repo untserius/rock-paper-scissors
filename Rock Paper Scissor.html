@@ -5,21 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissor</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Source+Sans+3&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="game.js" defer></script>
 </head>
 <body>
     <div class="header">
         <h1>Rock Paper Scissor</h1>
-        <p>Get Ready To Test Your Luck Against Computer</p>
+        <div class="typewriter">
+            <p>Get Ready To Test Your Luck Against Computer</p>
+        </div>
     </div>
 
     <div class="container">
         <div class="display">
-            <p id="output">Choose Your Move!</p>
+            
+            <p id="output"><span id="live"></span>Choose Your Move</p>
             <div class="counters">
-                <p>Computer Score: <span id="computerScore"></span></p>
-                <p>Your Score: <span id="userScore"></span></p>
+                <p>Computer : <span id="computerScore"></span></p>
+                <p>Player : <span id="userScore"></span></p>
             </div>
         </div>
 
@@ -27,8 +33,17 @@
             <button id="rock">Rock</button>
             <button id="paper">Paper</button>
             <button id="scissor">Scissor</button>
+        </div>
 
+        <div class="footer">
+            <p>Want to test your luck again ?</p>
             <button id="reset">Reset</button>
+        </div>
+    </div>
+
+    <div class="footer-links">
+        <div class="footer-text">
+            <p>© 2023 Serius. All rights reserved.</p>
         </div>
     </div>
 

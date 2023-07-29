@@ -44,7 +44,7 @@ function resetGame() {
     computerScore = 0;
     roundCount = 0;
     updateScore();
-    document.getElementById("output").innerHTML = "Choose Your Move!";
+    document.getElementById("output").innerHTML = "Choose Your Move";
 }
 
 // function to handle the game logic after each round
@@ -65,9 +65,9 @@ function handleRound(playerSelection) {
 
 function finalResult() {
     if(userScore === computerScore) {
-        return "It's a tie. Try Again!";
+        return "It's a tie! Try Again";
     } else if (userScore > computerScore) {
-        return "Congratulations You Win! (" + userScore + " - " + computerScore +")";
+        return "Congratulations! You Win (" + userScore + " - " + computerScore +")";
     } else {
         return "Sorry! You Lost (" + userScore + " - " + computerScore +")";
     }
