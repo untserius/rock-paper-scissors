@@ -28,7 +28,7 @@ function playGame(playerSelection, computerSelection) {
     const computerChoice = computerSelection;
 
     if (userChoice === computerChoice) {
-        return `It's a Tie!`;
+        return `${userChoice} = ${computerChoice}`;
     } else if (
         (userChoice === `<i class="fa-solid fa-hand-back-fist"></i>` && computerChoice === `<i class="fa-solid fa-hand-scissors"></i>`) ||
         (userChoice === `<i class="fa-solid fa-hand"></i>` && computerChoice === `<i class="fa-solid fa-hand-back-fist"></i>`) ||
@@ -36,11 +36,11 @@ function playGame(playerSelection, computerSelection) {
     ) {
         userScore++;
         updateScore();
-        return `You Win! ${userChoice} beats ${computerChoice}`;
+        return `<span style="color: #20C20E">${userChoice} > ${computerChoice}<br>W</span>`;
     } else {
         computerScore++;
-        updateScore();
-        return `You Lose! ${computerChoice} beats ${userChoice}`;
+        updateScore(); 
+        return `<span style="color: red">${userChoice} < ${computerChoice}<br>L</span>`;
     }
 }
 
@@ -50,25 +50,29 @@ function updateScore() {
     document.getElementById("computerScore").innerHTML = computerScore;
 }
 
-
+// update rounds
+function updateRoundCounter() {
+    document.getElementById("current-round").innerHTML = roundCount;
+}
 
 // handle the game logic after each round/loop
 function handleRound(playerSelection) {
     if (roundCount < 5) {
         const computerSelection = getComputerChoice();
         let result = playGame(playerSelection, computerSelection);
-        document.getElementById("output").innerHTML = result;
+        document.getElementById("console").innerHTML = result;
         roundCount++;
+        updateRoundCounter();
     }
 
     if (roundCount === 5) {
-        endGame();
+        setTimeout(endGame, 1000);
     }
 }
 
 // display final result
 function endGame() {
-    document.getElementById("output").innerHTML = finalResult(); 
+    document.getElementById("console").innerHTML = finalResult(); 
 }
 
 // final result logic
@@ -97,5 +101,6 @@ function resetGame() {
     computerScore = 0;
     roundCount = 0;
     updateScore();
-    document.getElementById("output").innerHTML = "Choose Your Move";
+    updateRoundCounter();
+    document.getElementById("console").innerHTML = "Choose Your Move";
 }
