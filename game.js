@@ -7,20 +7,19 @@ let roundCount = 0;
 // get computer's choice
 const getComputerChoice = () => {
     const randomIndex = Math.floor(Math.random() * box.length);
-
-    // converts the computer's choice into respective icon
-    function iconSelector() {
-        if(randomIndex === 0) {
-            return `<i class="fa-solid fa-hand-back-fist"></i>`;
-        } else if(randomIndex === 1) {
-            return `<i class="fa-solid fa-hand"></i>`;
-        } else if(randomIndex === 2) {
-            return `<i class="fa-solid fa-hand-scissors"></i>`;
-        }   
-    }
-
-    return iconSelector();
+    return iconSelector(randomIndex);
 };
+
+// converts the index value into icons
+function iconSelector(randomIndex) {
+    if(randomIndex === 0) {
+        return `<i class="fa-solid fa-hand-back-fist"></i>`;
+    } else if(randomIndex === 1) {
+        return `<i class="fa-solid fa-hand"></i>`;
+    } else if(randomIndex === 2) {
+        return `<i class="fa-solid fa-hand-scissors"></i>`;
+    }   
+}
 
 // game logic
 function playGame(playerSelection, computerSelection) {
