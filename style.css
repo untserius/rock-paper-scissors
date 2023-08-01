@@ -4,7 +4,7 @@
 }
 
 body {
-    background-image: url(images/whitebg.jpg);
+    background-image: url(whitebg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
